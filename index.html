@@ -1,0 +1,52 @@
+
+
+
+
+
+
+<div id="the-fight" style="text-align: center;">
+	
+	<img src="dragon.png">
+	<div id="dragon" style="font-size: 30px;">You have encountered a dragon.  Do you want to attack?</div>
+	<div>
+		<img src="d1.gif" name="myDie1">
+		<img src="d2.gif" name="myDie2">
+	</div>
+	<div id="message" style="font-size: 20px; margin-top: 20px;">You must roll higher than a 9, to defeat the dragon.</div>
+	<input type="button" value="Fight!" onclick="attackDragon()">
+	<input type="button" value="Run Away!" onclick="RunAway()">
+	<div id="your-roll"></div>
+
+</div>
+
+<script type="text/javascript">
+
+	function attackDragon(){
+		var randomDie1 = Math.floor(Math.random()*6)+1;
+		var randomDie2 = Math.floor(Math.random()*6)+1;
+		document.images["myDie1"].src = "d" + randomDie1 + ".gif";
+		document.images["myDie2"].src = "d" + randomDie2 + ".gif";
+		document.getElementById("your-roll").innerHTML = "You rolled a "+ (randomDie1 + randomDie2);
+		if((randomDie1 === randomDie2) && ((randomDie1 + randomDie2)>9)){
+			document.getElementById("message").innerHTML = "Whoa. Doubles.  You killed the dragon and his family!"
+		}else if ((randomDie1+randomDie2) > 9){
+			document.getElementById("message").innerHTML = "You slayed the dragon!";
+		}else {
+			document.getElementById("message").innerHTML = "The dragon slayed your ass";
+		}
+	}
+
+	function RunAway(){
+		document.getElementById("message").innerHTML = "Never run from a dragon.  He lit your ass up!";
+		document.getElementById("your-roll").innerHTML = "You were too pathetic to roll so no number for you!!!";
+
+	}
+	
+
+</script>
+
+
+
+
+
+
